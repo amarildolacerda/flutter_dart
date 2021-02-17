@@ -193,12 +193,12 @@ class OData extends _ODataBuilder {
     var statusCode = response.statusCode;
     if (response.statusCode == 200) {
       // done - you should check the response.statusCode
-      String reply = await response.transform(utf8.decoder).join();
+      String reply = await utf8.decoder.bind(response).join();
       //print(reply);
       return reply;
     } else {
       print('response.statusCode: $statusCode');
-      String reply = await response.transform(utf8.decoder).join();
+      String reply = await utf8.decoder.bind(response).join();
       //print(reply);
       return throw (reply);
     }
